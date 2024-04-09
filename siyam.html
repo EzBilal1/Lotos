@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love & Fasting Greeting</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        font-family: 'Cairo', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f9f9f9;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 600px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: relative;
+    }
+
+    .message {
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: center;
+        color: #333;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <p class="message"></p>
+    </div>
+
+    <script>
+        const message = document.querySelector(".message");
+
+        let text = `عزيزتي،
+        أرسل لك هذه الرسالة كهدية في هذا اليوم، لأدعو لقبول صيامك ولأعبر لك عن مشاعري الصادقة. ❤️
+        أتمنى من الله أن يتقبل منك صيامك وأن يجعل كل جهدك في هذا الشأن محل ثواب ومغفرة. 🌙🤲
+        من كل قلبي، أحببتكِ بصدق وأعشق كل لحظة أقضيها بجانبك. 💕
+        أنتِ أهم شخص في حياتي، وأتمنى لك يومًا سعيدًا ومليئًا بالحب والسعادة. 🌹
+        مع كل الحب والتقدير،`;
+
+        function showMessage() {
+            message.textContent = "";
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < text.length) {
+                    message.textContent += text[i];
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 50);
+        }
+
+        showMessage();
+    </script>
+</body>
+
+</html>

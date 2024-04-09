@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Message</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Fira Sans', sans-serif;
+      background-color: #fce4ec; /* لون الخلفية الجديد */
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      width: 400px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      text-align: center;
+    }
+
+    .message {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .signature {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #ff69b4; /* لون التوقيع الجديد */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <p class="message" id="p"></p>
+      <p class="signature">بلال</p>
+    </div>
+  </div>
+
+  <script>
+    const p = document.querySelector("#p");
+
+    let text = ` 
+
+    هاجر لحبيبة ديالي انا عرفك كدوزي من فترة صعيبة دبا لمعرفاش راسك باش كتحسي بغيت نقولك انا معاك  معاك ديما اهاجر افخور انك بنتي  انا مغاديش نخليك وحدك تحاربي هادشي غادي نحارب معاك الألم اكلشي حتى تولي مزيان ثقي فيا اهاجر ديالي اتبعي هدرتي غادي تولي مزيان نتي عندك فترة فراغ انا معاك فيها اهاجر ديالي  انا معاك اهاجر خص ترجع الضحكة انمسحو دمعة كلامي ليك خارج من القلب الحبيبة ديالي متنسايش بلال معاك فكلشي  قادر نكتب مليون كلمة و ليني غادي نقول انا معك
+
+
+      `;
+
+    function displayMessage() {
+      let i = 0;
+      setInterval(() => {
+        if (i < text.length) {
+          p.innerHTML += text[i];
+          i++;
+        }
+      }, 50);
+    }
+    displayMessage();
+  </script>
+</body>
+</html>

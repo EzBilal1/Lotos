@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تهنئة وقصيدة حب</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+      }
+
+      .container {
+        text-align: center;
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        margin-bottom: 20px;
+        margin-top: 50px;
+        display: none; /* تبدأ مخفية */
+      }
+
+      h1 {
+        color: #e8491d;
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: #555;
+        font-size: 20px;
+        line-height: 1.6;
+      }
+
+      #heart {
+        color: #e8491d;
+        font-size: 40px;
+      }
+
+      #poem {
+        color: #333;
+        font-size: 18px;
+        text-align: right;
+        direction: rtl;
+        white-space: pre-line;
+        margin-top: 20px;
+        line-height: 1.8;
+      }
+
+      #confetti {
+        min-height: 10vh;
+        margin: 0 auto;
+        background-color: #fff;
+        width: 100%;
+      }
+
+      span {
+        display: inline-block;
+        margin: 0 5px;
+      }
+
+      #countdown {
+        font-size: 48px;
+        color: #e8491d;
+        margin-top: 20px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+      }
+
+      #countdownMessage,
+      #greetingContainer {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      #countdownMessage p {
+        font-size: 20px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="confetti"></div>
+
+    <!-- الرسالة قبل العد التنازلي -->
+    <div id="countdownMessage">
+      <p >         هههههههه غادي تصبري حتى ل 00.00 باش تشوفي هههههههه صبري اش خاسرة       </p>
+    </div>
+
+    <!-- الرسالة بعد العد التنازلي -->
+    <div class="container" id="greetingContainer">
+      <h1>عام سعيد 2024!</h1>
+      <p>
+        عزيزتي هاجر،<br />
+        بمناسبة العام الجديد، أتمنى لكِ سنة مليئة بالفرح والنجاح. أنتِ نجمة
+        مضيئة في حياتي، وأتمنى لكِ الأفضل دائماً.
+      </p>
+    </div>
+    <div class="container" id="greetingContaine">
+        <p>
+            يا نجمة الليل الساطعة في سمائي<br>
+            ها هو العام الجديد يشرق كالفجر الجميل<br>
+            أقف هنا لأقول لكِ بكل حب وإعجاب<br>
+            كل عام وأنتِ حبيبتي وسر الأيام
+    
+            في عينيكِ يتسارع نبض قلبي<br>
+            وعند سماع صوتكِ تهدأ الدنيا<br>
+            أحن إليكِ كما يحن الزهر لنسمة الربيع<br>
+            يا حبيبتي، أنتِ الأمل والسرور
+    
+            كل يوم أقول للحظات السعادة<br>
+            إنها لن تكتمل إلا بوجودكِ العزيز<br>
+            وكل مساء أنام وأحلم بأيام مشرقة<br>
+            حيث نمضي سوياً في رحلة العمر الجميلة
+    
+            أرسم في خيالي مستقبلنا المشرق<br>
+            حيث الحب يتفتح كزهر الربيع الفاتن<br>
+            وكلما نظرتُ إليكِ أدركتُ أنكِ القمر<br>
+            الذي يضيء لي الطريق في ليالي الظلام
+    
+            يا من أسرتِ قلبي بسحر جمالكِ<br>
+            وأسكنتِ في روحي كل الحب والحنان<br>
+            أعاهدكِ أن أكون معكِ في السراء والضراء<br>
+            وأن نمضي سوياً في رحلة الحياة الرائعة
+    
+            كل عام وأنتِ بأتم الصحة والسعادة<br>
+            وأتمنى أن يكون العام الجديد مليء بالإنجازات<br>
+            وأن يكون لنا حظ من الأيام السعيدة<br>
+            أنتِ الهدية التي أتمناها في كل عام جديد
+          </p>
+    </div>
+
+    <!-- عد التنازلي -->
+    <div id="countdown"></div>
+
+    <script>
+      // رموز الكونفيتي
+      const confettiCodes = [
+        "&#10084;",
+        "&#x2728;",
+        "&#127881;",
+        "&#127882;",
+        "&#127883;",
+      ];
+
+      // إنشاء عناصر الكونفيتي
+      const confettiContainer = document.getElementById("confetti");
+      const fragment = document.createDocumentFragment();
+
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement("span");
+        confetti.innerHTML =
+          confettiCodes[Math.floor(Math.random() * confettiCodes.length)];
+        fragment.appendChild(confetti);
+      }
+
+      confettiContainer.appendChild(fragment);
+
+      // الوقت المحدد للعرض
+      const targetTime = new Date("2024-01-01T00:00:00").getTime();
+
+      // عرض الرسالة بعد انتهاء العد التنازلي
+      const greetingContainer = document.getElementById("greetingContainer");
+      const countdownMessage = document.getElementById("countdownMessage");
+      const countdownElement = document.getElementById("countdown");
+
+      // حساب الفارق بين الوقت الحالي والوقت المحدد
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = targetTime - now;
+
+        // عند انتهاء العد التنازلي، قم بعرض الرسالة
+        if (difference <= 0) {
+          greetingContainer.style.display = "block";
+          greetingContaine.style.display = "block";
+          countdownElement.style.display = "none";
+          countdownMessage.style.display = "none";
+        } else {
+          // إعداد نص العد التنازلي
+          const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (difference % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+          countdownElement.innerHTML = `${days} : ${hours} :  ${minutes} : ${seconds} `;
+        }
+      }
+
+      // تحديث العد التنازلي كل ثانية
+      setInterval(updateCountdown, 1000);
+    </script>
+  </body>
+</html>

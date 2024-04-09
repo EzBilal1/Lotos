@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .div {
+        width: 100%;
+        height: 95vh;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 20px;
+        align-items: end;
+      }
+      .cart {
+        width: 300px;
+        height: 250px;
+        background-color: rgb(255, 165, 236);
+
+        position: relative;
+        z-index: -1;
+      }
+      .cart::after {
+        content: " ";
+        width: 300px;
+        height: 150px;
+        position: absolute;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        top: -149px;
+        background-color: rgb(255, 165, 236);
+        z-index: -1;
+      }
+      .cart::before {
+        content: " ";
+        width: 300px;
+        height: 250px;
+        position: absolute;
+        clip-path: polygon(49% 49%, 100% 0, 100% 100%, 0% 100%, 0 49%, 0 0);
+        bottom: 0;
+        background-color: #ff69b4;
+        z-index: 2;
+      }
+      p {
+        background-color: #fff;
+        height: 0;
+        text-align: center;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        line-height: 1.4;
+        padding: 0 10px;
+        padding-top: 10px;
+        font-size: 18px;
+        font-weight: 600;
+        overflow: hidden;
+        transition: 3s;
+        font-family: "Fira Sans", sans-serif;
+        transform: translateY(200px);
+      }
+    </style>
+  </head>
+  <body style="background-color: rgb(254, 211, 245)">
+    <div class="div">
+      <div class="cart">
+        <p id="p"></p>
+      </div>
+    </div>
+
+    <script>
+      const cart = document.querySelector("button");
+      const p = document.querySelector("#p");
+
+      let text = ` حبيبتي الغالية،
+        كلماتي لن تكفي أبدًا لوصف كم أنتِ عزيزة عليّ. 💖💕 لقد غزتِ حياتي بالحب
+        والسعادة، ولا أستطيع التخيل حياتي بدون وجودك. 🌟
+        أنتِ تمثلين لي كل شيء جميل في هذا العالم. عيونك الساحرة تضيئ حياتي في كل
+        يوم، وضحكتك تملأ قلبي بالبهجة. 😍💫 أنتِ الشمس التي تضيء ليلي الظلمة. ☀️
+        أنا ممتن للأيام التي قضيتها بجانبك وللأوقات السعيدة التي شاركتنا. أتمنى أن
+        تستمر هذه اللحظات الجميلة إلى الأبد أعدك بأنني سأكون هنا دائمًا لدعمك
+        وحمايتك وتقديم حبي الصادق. ❤️
+        أنتِ أغلى ما أملك، وأنتِ حلمي الذي تحقق. أحبك بجميع ملامحك وعيوبك، وأعدك
+        أن أبقى أحبك كل يوم أكثر. 💞
+        دمتي مليئة بالسعادة والحب، ودمتي معي للأبد. 🌹
+        بكل حب وعاطفة، بلال 🥰
+          `;
+
+      function nam() {
+        p.style.height = "600px";
+        p.style.transform = "translateY(-400px)";
+        let i = 0;
+        setTimeout(() => {
+          let set = setInterval(() => {
+            p.innerHTML += `${text[i]}`;
+            i++;
+            if (i === text.length) {
+              clearInterval(set);
+              console.log("yes");
+            }
+          }, 100);
+        }, 1500);
+      }
+      nam();
+    </script>
+  </body>
+</html>
